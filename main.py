@@ -20,7 +20,6 @@ class SuperHero:
 
     def find_id_hero_by_name(self, name_hero):
         list_heroes = self._get_data()
-        print(list_heroes)
         for hero in list_heroes:
             if hero['name'] == name_hero:
                 id_hero = hero['id']
@@ -29,7 +28,6 @@ class SuperHero:
     
     def add_intalligence_by_name(self, name_hero):
         list_heroes = self._get_data()
-        print(list_heroes)
         for hero in list_heroes:
             if hero['name'] == name_hero:
                 intelligence = hero['intelligence']
@@ -53,11 +51,14 @@ class Heroes:
         res = f'{self.name} id({self.id}): intelligence = {self.intelligence} '
         return res
 
-    
-
-    
-
 if __name__ == '__main__':
   sh = SuperHero()
-  Hulk = Heroes(sh.find_id_hero_by_name('Hulk'),'Hulk', sh.add_intalligence_by_name('Hulk'))
-  print(Hulk)
+  
+  hulk = Heroes(sh.find_id_hero_by_name('Hulk'),'Hulk', sh.add_intalligence_by_name('Hulk'))
+  thanos = Heroes(sh.find_id_hero_by_name('Thanos'),'Thanos', sh.add_intalligence_by_name('Thanos'))
+  captain_america= Heroes(sh.find_id_hero_by_name('Captain America'),'Captain America', sh.add_intalligence_by_name('Captain America'))
+  
+  list_heroes = [hulk, thanos, captain_america]
+  print(f'Сравниваем:\n{hulk}\n{thanos}\n{captain_america}')
+  print('---'*10)
+  print(f'Самый сильный: {max(list_heroes)}')
